@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}JobReady{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">JobReady</div>
+    <div class="tagline">Preparação para entrevistas</div>
+    <nav>
+      <a href="{{ url_for('index') }}" class="{{ 'active' if active == 'home' else '' }}">Início</a>
+      <a href="{{ url_for('usuario_bp.tela_usuarios') }}" class="{{ 'active' if active == 'usuarios' else '' }}">Usuários</a>
+      <a href="{{ url_for('curriculo_bp.tela_curriculos') }}" class="{{ 'active' if active == 'curriculos' else '' }}">Currículos</a>
+      <a href="{{ url_for('pergunta_bp.tela_perguntas') }}" class="{{ 'active' if active == 'perguntas' else '' }}">Perguntas</a>
+      <a href="{{ url_for('entrevista_bp.tela_entrevistas') }}" class="{{ 'active' if active == 'entrevistas' else '' }}">Entrevistas</a>
+      <a href="{{ url_for('resposta_bp.tela_respostas') }}" class="{{ 'active' if active == 'respostas' else '' }}">Respostas</a>
+      <a href="{{ url_for('feedback_bp.tela_feedbacks') }}" class="{{ 'active' if active == 'feedbacks' else '' }}">Feedbacks</a>
+    </nav>
+  </aside>
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+</div>
+{% block scripts %}{% endblock %}
+</body>
+</html>
